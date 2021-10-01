@@ -1,3 +1,6 @@
+from math import factorial
+
+
 def get_base_16_from_2():
     pass
 
@@ -6,8 +9,18 @@ def test_get_base_16_from_2():
     pass
 
 
-def get_n_choose_k():
-    pass
+def get_n_choose_k(n, k):
+    """
+    Calculeaza combinari de n luate cate k
+
+    Args:
+    n -> int
+    k -> int
+
+    Returns: int
+    """
+
+    return factorial(n) / (factorial(k) * factorial(n - k))
 
 
 def test_get_n_choose_k():
@@ -42,7 +55,7 @@ x - Iesire
         elif option == "1":
             num_in_base_2 = input("Intorduceti un numar in baza 2: ")
             print("Raspuns: ", get_base_16_from_2(num_in_base_2))
-        elif option is "2":
+        elif option == "2":
             n = int(input("Introduceti n: "))
             k = int(input("Introduceti k: "))
             print("Raspuns: ", get_n_choose_k(n, k))
