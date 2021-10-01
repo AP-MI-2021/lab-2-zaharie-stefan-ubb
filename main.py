@@ -22,7 +22,7 @@ Meniu:
 
 Teste:
 t1 - Ruleaza testele pentru functia get_base_16_from_2
-t2 - Ruleaza testele pentru functia geg_n_choose_k
+t2 - Ruleaza testele pentru functia get_n_choose_k
 
 m - Afiseaza acest meniu
 x - Iesire
