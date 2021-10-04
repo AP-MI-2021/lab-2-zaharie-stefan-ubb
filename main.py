@@ -34,7 +34,13 @@ def get_base_16_from_2(num_in_base_2):
 
 
 def test_get_base_16_from_2():
-    pass
+    assert get_base_16_from_2("0") == "0"
+    assert get_base_16_from_2("2") == "Eroare! Numarul introdus este incorect"
+    assert get_base_16_from_2("1010") == "A"
+    assert get_base_16_from_2("111") == "7"
+    assert get_base_16_from_2("10000") == "10"
+    assert get_base_16_from_2("1111") == "F"
+    assert get_base_16_from_2("0101100001111101010001110101") == "587D475"
 
 
 def get_n_choose_k(n, k):
@@ -48,11 +54,16 @@ def get_n_choose_k(n, k):
     Returns: int
     """
 
-    return factorial(n) / (factorial(k) * factorial(n - k))
+    if n < 0 or k < 0:
+        return -1
+
+    return int(factorial(n) / (factorial(k) * factorial(n - k)))
 
 
 def test_get_n_choose_k():
-    pass
+    assert get_n_choose_k(5, 2) == 10
+    assert get_n_choose_k(-5, 2) == -1
+    assert get_n_choose_k(0, 0) == 1
 
 
 def main():
@@ -86,7 +97,11 @@ x - Iesire
         elif option == "2":
             n = int(input("Introduceti n: "))
             k = int(input("Introduceti k: "))
-            print("Raspuns: ", get_n_choose_k(n, k))
+            ans = get_n_choose_k(n, k)
+            if ans == -1:
+                print("Eroare! Numarul introdus nu este pozitiv")
+            else:
+                print("Raspuns: ", ans)
 
         elif option == "t1":
             print("Se ruleaza testele...")
