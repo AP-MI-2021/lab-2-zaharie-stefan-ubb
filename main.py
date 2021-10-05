@@ -66,15 +66,36 @@ def test_get_n_choose_k():
     assert get_n_choose_k(0, 0) == 1
 
 
+def is_palindrome(n):
+    length = len(n)
+    ans = True
+    for i in range(length // 2):
+        if n[i] != n[length - i - 1]:
+            ans = False
+
+    return ans
+
+
+def test_is_palindrome():
+    assert is_palindrome("329847") == False
+    assert is_palindrome("gg") == True
+    assert is_palindrome("99") == True
+    assert is_palindrome("2") == True
+    assert is_palindrome("-2") == False
+    assert is_palindrome("232") == True
+
+
 def main():
     usage = """
 Meniu:
 1 - Transforma un numar din baza 2 in baza 16
 2 - Calculeaza combinari de n luate cate k
+3 - Determina daca un numar/string este palindrom
 
 Teste:
 t1 - Ruleaza testele pentru functia get_base_16_from_2
 t2 - Ruleaza testele pentru functia get_n_choose_k
+t3 - Ruleaza testele pentru functia is_palindrome
 
 m - Afiseaza acest meniu
 x - Iesire
@@ -102,6 +123,13 @@ x - Iesire
                 print("Eroare! Numarul introdus nu este pozitiv")
             else:
                 print("Raspuns: ", ans)
+        elif option == "3":
+            n = input("Intorduceti un numar/string: ")
+            ans = is_palindrome(n)
+            if ans:
+                print("Este palindrom!")
+            else:
+                print("Nu este palindrom!")
 
         elif option == "t1":
             print("Se ruleaza testele...")
@@ -110,6 +138,10 @@ x - Iesire
         elif option == "t2":
             print("Se ruleaza testele...")
             test_get_n_choose_k()
+            print("Toate testele au fost rulate cu succes")
+        elif option == "t3":
+            print("Se ruleaza testele...")
+            test_is_palindrome()
             print("Toate testele au fost rulate cu succes")
 
         else:
